@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    
-    <%@include file = "./header.jsp" %>
+    <!-- 헤더 부분 -->
+    <%@include file = "./header.jsp" %> 
 	
 	
-
+	<!-- 이미지 슬라이더 부분 -->
     <div class="img-slide-wrap">
 
         <div class="img-slide">
@@ -36,21 +36,18 @@
 
     </div>
     
+    <!-- 섹션 부분 ( Best 상품 보여주는 부분 ) -->
     <div class="section-one">
-
         <div class="title">
             Best Product
         </div>
-
         <div class="best-item-wrap">
         	<c:if test="${BestPinfo.listSize>0 }">
 				<c:forEach var="i" begin = "0" end = "${BestPinfo.listSize -1}">
-		            <form action = "./view" method="POST" accept-charset="UTF-8" class="best-item">
-		                
+		            <form action = "./view" method="POST" accept-charset="UTF-8" class="best-item"> 
 		                <div class="item-index">
 		                    ${i+1 }
 		                </div>
-		                
 		                <div class="item-img-wrap" >
 		                    <img src="./img/${ BestPinfo.img[i]}" class="item-img">
 		                </div>
@@ -73,25 +70,19 @@
 		                            리뷰  ${BestPinfo.comment[i] }
 		                        </div>
 		                    </div>
-		                </div>
-		                
-		                
+		                </div>          
 		                <input type="hidden" name= "name" value ="${ BestPinfo.name[i] }" />
-	
 		            </form>
 				</c:forEach>
             </c:if>
-
         </div>
-
     </div>
-
+    
+	<!-- 섹션 부분 (New 상품 보여주는 부분) -->
     <div class="section-two">
-
         <div class="title">
             New Product
         </div>
-
         <div class="new-item-wrap">
         	<c:if test="${NewPinfo.listSize>0 }">
 				<c:forEach var="i" begin = "0" end = "${NewPinfo.listSize -1}">
@@ -121,21 +112,11 @@
 	                        </div>
 	                    </div>
 	                </div>
-	    			
 	    			<input type="hidden" name= "name" value ="${ NewPinfo.name[i] }" />
-	    			
 	            </form>
 	    		</c:forEach>
             </c:if>
-    
-           
-    
-            
-
         </div>
-        
-
-        
     </div>
 
     <footer class="footer">
@@ -149,6 +130,7 @@
 
         </div>
     </footer>
+    
     <script src="./js/main.js"></script>
     <script src="./js/header.js"></script>
 </body>

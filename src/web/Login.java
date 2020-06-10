@@ -60,7 +60,6 @@ public class Login extends HttpServlet {
 	}
 
 	private boolean checkInfo(String id, String pw) throws ServletException {
-		// TODO Auto-generated method stub
 		Connection conn =null;
 		Statement stmt = null;
 		try {

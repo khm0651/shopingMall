@@ -43,9 +43,9 @@ public class DBConnect extends HttpServlet {
     @Override
 
     public void init() throws ServletException {
-
+    	//JDBC 드라이버 연동
     	loadJDBCDriver();
-
+    	//connectpool을 이용하여 데이터베이스 연동
     	initConnectionPool();
 
     }

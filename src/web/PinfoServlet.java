@@ -57,11 +57,9 @@ public class PinfoServlet extends HttpServlet {
 			conn = DriverManager.getConnection(dburl);
 			stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
-			
 			rs.last();
 			int c = rs.getRow();
 			rs.first();
-			
 			for (int i = 0 ; i<c; i++) {
 				pinfo.setPid(i,rs.getString("pid"));
 				pinfo.setName(i,rs.getString("name"));
@@ -77,9 +75,7 @@ public class PinfoServlet extends HttpServlet {
 					break;
 				}
 			}
-				
 
-			
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}finally {
@@ -92,7 +88,5 @@ public class PinfoServlet extends HttpServlet {
 		}
 		return pinfo;
 	}
-	
-	
 }
 

@@ -90,7 +90,7 @@
 		
 		<div class="card-wrapper">
 		
-			<a href = "./Mypage-View?type=buy" class="card">
+			<a href = "./mypage-View?type=buy" class="card">
 			
 				<div class="card-img-wrapper">
 					<img class = "card-img" src = "./img/order.png"/>
@@ -106,7 +106,7 @@
 				</div>
 			</a>
 			
-			<a href = "./Mypage-View?type=fav" class="card">
+			<a href = "./mypage-View?type=fav" class="card">
 			
 				<div class="card-img-wrapper">
 					<img class = "card-img" src="./img/smart-cart.png"/>

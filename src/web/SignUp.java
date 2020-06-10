@@ -85,23 +85,15 @@ public class SignUp extends HttpServlet {
 				return true;
 			}
 		} catch(SQLException e) {
-
 			System.out.println(e.getMessage());
-
 		} finally {
 
-
 			//커넥션을 풀에 반환함
-
 			try { 
 				if(stmt != null) stmt.close();
 				if(conn != null) conn.close();
 				
-
-
 			} catch(SQLException ex) {}
-			
-		
 
 		}
 		return false;

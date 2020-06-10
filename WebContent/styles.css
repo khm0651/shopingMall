@@ -19,8 +19,8 @@ span{
 }
 
 .header{
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 12%;
+    padding-right: 12%;
     display: flex;
     flex-direction: row;
     justify-items: center;
@@ -591,9 +591,12 @@ span{
 }
 
 .view-wrapper{
-	height:600px;
-	padding:50px 100px 50px 100px;
-	display:flex;
+	height: 600px;
+    padding: 50px 100px 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 }
 
 .img-wrapper{
@@ -614,6 +617,7 @@ span{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    margin-left: 100px;
 }
 
 .p-title{
@@ -1048,6 +1052,9 @@ span{
 	position: absolute;
     right: 130px;
     top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .write-img{
@@ -1098,7 +1105,7 @@ span{
 }
 
 .comment-wrapper{
-	padding: 15px 300px 0px;
+	padding: 15px 300px;
     background-color: #efefef6b;
 }
 
@@ -1114,7 +1121,8 @@ span{
 	justify-content: flex-end;
     display: flex;
     font-size: 13px;
-    color: gray;	
+    color: gray;
+    align-items: center;	
 }
 
 .comment-info div{
@@ -1223,8 +1231,8 @@ span{
     right: 45px;
     bottom: 50px;
     resize: both;
-    width: 60px;
-    height: 60px;
+    width: 90px;
+    height: 90px;
 }
 
 .comment-button:hover{
@@ -1387,3 +1395,17 @@ span{
 	cursor:pointer;
 }
 
+.comment-info .deleteComment{
+	margin-right:20px;
+	cursor:pointer;
+}
+
+.forAdmin{
+	resize: both;
+    width: 50px;
+}
+
+.delete-img{
+	resize: both;
+    width: 20px;
+}

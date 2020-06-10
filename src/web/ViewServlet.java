@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet("/ViewServlet")
 public class ViewServlet extends HttpServlet {
+	private String pid = null;
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -36,13 +37,51 @@ public class ViewServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		String query = "select * from product join pImg on product.pid = pImg.pid where name = '"+name+"'";
-		View view = readDB(query);
+		
+		View view = readProductDB(query);
+		String query2 = "select * from comment where pid='"+pid+"'";
+		String id = (String) session.getAttribute("LOGIN_ID");
+		CommentDao comment = readCommentDB(query2);
+		request.setAttribute("comment", comment);
 		request.setAttribute("vInfo", view);
+		request.setAttribute("id", id);
+		request.setAttribute("pid",pid);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./view.jsp");
 		dispatcher.forward(request, response);
+		
 	}
 
-	private View readDB(String query) {
+	private CommentDao readCommentDB(String query2) {
+		CommentDao comment = new CommentDao();
+		Connection conn = null;
+		Statement stmt = null;
+		try {
+			String dburl = "jdbc:apache:commons:dbcp:wdbpool";
+			conn = DriverManager.getConnection(dburl);
+			stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(query2);
+			int i =0;
+			while(rs.next()) {
+				comment.setContent(i, rs.getString("content"));
+				comment.setId(i, rs.getString("id"));
+				comment.setTitle(i, rs.getString("title"));
+				comment.setDate(i, rs.getString("date"));
+				i++;
+			}
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}finally {
+			try {
+				if(conn!=null)conn.close();
+				if(stmt!=null)stmt.close();
+			}catch(SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return comment;
+	}
+
+	private View readProductDB(String query) {
 		// TODO Auto-generated method stub
 		View vinfo = new View();
 		Connection conn = null;
@@ -59,6 +98,7 @@ public class ViewServlet extends HttpServlet {
 				size = rs.getString("size").split(",");
 				color = rs.getString("color").split(",");
 				vinfo.setPid(rs.getString("pid"));
+				pid = rs.getString("pid");
 				vinfo.setName(rs.getString("name"));
 				vinfo.setPrice(rs.getString("price"));
 				vinfo.setStock(rs.getInt("stock"));

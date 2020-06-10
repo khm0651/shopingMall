@@ -78,7 +78,7 @@
             <%
             
 				if(session.getAttribute("IS_ADMIN") != null && session.getAttribute("IS_ADMIN").equals(true)){
-					out.println("<a class='write' href='./write.jsp'>글쓰기</a>");
+					out.println("<a class='write' href='./write.jsp'><image src='./img/write.png'/ class='forAdmin'>글쓰기</a>");
 				}
 		
             %>

@@ -15,7 +15,16 @@ var stock = document.querySelector("span");
 var write = document.querySelector(".comment-button");
 var body = document.querySelector("body");
 var exit;
-var commentInput;
+var pid = document.querySelector(".id").innerText;
+let deleteComment;
+if(document.querySelectorAll(".deleteComment")!= null){
+	deleteComment = document.querySelectorAll(".deleteComment");
+}
+for(let i = 0 ; i<deleteComment.length; i++){
+	deleteComment[i].addEventListener("click",e=>{
+		e.target.parentElement.submit();
+	})
+}
 
 sSize.innerText = size.value;
 sColor.innerText = color.value;
@@ -30,6 +39,9 @@ const MakeComment = (parent) => {
 	var div = document.createElement("div");
 	var input = document.createElement("input");
 	form.classList.add("input-comment");
+	form.action = "./comment";
+	form.method = "POST";
+	form.acceptCharset="UTF-8";
 	div.classList.add("comment-sub-wrapper");
 	input.classList.add("write-comment-title");
 	input.name="write-comment-title";
@@ -53,6 +65,11 @@ const MakeComment = (parent) => {
 	div.append(textarea);
 	div.append(input);
 	form.append(div);
+	input = document.createElement("input");
+	input.type="hidden";
+	input.name="pid";
+	input.value=pid;
+	form.append(input);
 	parent.append(form);
 	commentInput=document.querySelector(".input-comment");
 	

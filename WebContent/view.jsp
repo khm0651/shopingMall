@@ -16,6 +16,7 @@
 		<div class = "img-wrapper">
 			<image src="./img/${vInfo.img }" class="product-img">
 		</div>
+		
 		<div class="product-info-wrapper">
 		
 			<div class="p-title">
@@ -112,112 +113,41 @@
 	</div>
 	
 	<div class="comment-wrapper">
-		<div class ="comment">
-			<div class="comment-info">
-				<div>
-					닉네임
+		<c:if test = "${comment.listSize > 0 }">
+			<c:forEach var = "i" begin="0" end = "${comment.listSize -1 }">
+				<div class ="comment">
+					<div class="comment-info">
+						<c:if test = "${comment.id[i].equals(id) }">
+							<form action="./deleteComment" method="POST" accept-charset="UTF-8" class="deleteComment">
+								<img src="./img/delete.png" class="delete-img">
+								<input type="hidden" name="pid" value="${pid }"/>
+								<input type="hidden" name="id" value="${comment.id[i] }"/>
+								<input type="hidden" name="title" value="${comment.title[i] }"/>
+								<input type="hidden" name="content" value="${comment.content[i] }"/>
+							</form>
+						</c:if>
+						<div>
+							${comment.id[i] }
+						</div>
+						<div>
+							${comment.date[i] }
+						</div>
+					</div>
+					<div class="comment-title">
+						${comment.title[i] }
+					</div>
+					<div class="comment-sub">
+						${comment.content[i] }
+					</div>
 				</div>
-				<div>
-					작성날짜
-				</div>
-			</div>
-			<div class="comment-title">
-				제목
-			</div>
-			<div class="comment-sub">
-				댓글예시입니다 댓글 예시입니다.
-			</div>
-		</div>
-		
-		<div class ="comment">
-			<div class="comment-info">
-				<div>
-					닉네임
-				</div>
-				<div>
-					작성날짜
-				</div>
-			</div>
-			<div class="comment-title">
-				제목
-			</div>
-			<div class="comment-sub">
-				댓글예시입니다 댓글 예시입니다.
-			</div>
-		</div>
-		
-		<div class ="comment">
-			<div class="comment-info">
-				<div>
-					닉네임
-				</div>
-				<div>
-					작성날짜
-				</div>
-			</div>
-			<div class="comment-title">
-				제목
-			</div>
-			<div class="comment-sub">
-				댓글예시입니다 댓글 예시입니다.
-			</div>
-		</div>
-		
-		<div class ="comment">
-			<div class="comment-info">
-				<div>
-					닉네임
-				</div>
-				<div>
-					작성날짜
-				</div>
-			</div>
-			<div class="comment-title">
-				제목
-			</div>
-			<div class="comment-sub">
-				댓글예시입니다 댓글 예시입니다.
-			</div>
-		</div>
-		
-		<div class ="comment">
-			<div class="comment-info">
-				<div>
-					닉네임
-				</div>
-				<div>
-					작성날짜
-				</div>
-			</div>
-			<div class="comment-title">
-				제목
-			</div>
-			<div class="comment-sub">
-				댓글예시입니다 댓글 예시입니다.
-			</div>
-		</div>
-		
-		<div class ="comment">
-			<div class="comment-info">
-				<div>
-					닉네임
-				</div>
-				<div>
-					작성날짜
-				</div>
-			</div>
-			<div class="comment-title">
-				제목
-			</div>
-			<div class="comment-sub">
-				댓글예시입니다 댓글 예시입니다.
-			</div>
-		</div>
+			</c:forEach>
+		</c:if>
+
 	</div>
 	
 	
 	
-	<img class="comment-button" src="./img/write.png"/>
+	<img class="comment-button" src="./img/comment.png"/>
 
 	<script src="./js/view.js" charset="UTF-8"></script>
 	<script src="./js/header.js"></script>
