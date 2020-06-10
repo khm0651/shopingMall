@@ -59,7 +59,6 @@
 			
 			<div class="write-button-wrapper">
 				<input type="submit" class= "write-fav-btn" value="작성완료">
-
 			</div>
 			
 			
