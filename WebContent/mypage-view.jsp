@@ -46,7 +46,7 @@
 				
 				
 			</div>
-			
+			<!-- 데이터베이스 안에 사용자가 구매한 물품들 표시 -->
 			<div class="myorder-list-wrapper">
 				<c:if test ="${Mybuy.count > 0}">
 					<c:forEach var="i" begin="0" end="${Mybuy.count - 1}">

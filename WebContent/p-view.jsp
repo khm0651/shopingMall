@@ -13,6 +13,7 @@
 <body>
 	<%@ include file = "./header.jsp" %>
 	
+	<!-- 데이터베이스안에 저장되어있는 상품들에 대한 정보 표시 -->
 	<div class="p-view-wrapper">
 		<c:forEach var="i" begin="0" end = "${info.listSize - 1}">
 		<form action = "./view" method="POST" accept-charset="UTF-8" class="p-view-item">

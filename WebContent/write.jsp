@@ -10,6 +10,7 @@
 <body>
 	<%@ include file = "./header.jsp" %>
 	<%
+		//url을 이용하여 허가되지 않은 사용자가 접근한 경우 차단
 		if(session.getAttribute("IS_ADMIN") == null ){
 			out.println("<script>alert('잘못된 접근입니다.');location.href='./index.jsp';</script>");
 		}

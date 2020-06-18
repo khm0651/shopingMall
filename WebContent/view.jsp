@@ -12,6 +12,8 @@
 <body>
 	<%@include file="./header.jsp" %>
 	
+	
+	<!-- 사용자가 보고싶어 하는 상품의 정보를 표시 -->
 	<div class="view-wrapper">
 		<div class = "img-wrapper">
 			<image src="./img/${vInfo.img }" class="product-img">

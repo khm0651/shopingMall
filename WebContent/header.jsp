@@ -54,6 +54,7 @@
 				
                 <div>
                 	<%
+                		//로그인을 한경우 "사용자아이디" 님 환영합니다 표시 그렇지않은경우 회원가입 표시
 						if(session.getAttribute("LOGIN_ID") != null){
 							out.println("<a href='./my-page.jsp' class='username'>"+session.getAttribute("LOGIN_ID")+"</a>");
 							out.println("<div class='welcome-label'>님 환영합니다.</div>");
@@ -65,6 +66,7 @@
 
                 <div>
                 	<%
+                		//로그인을 한 경우 로그아웃 표시 그렇지 않은경우  로그인 표시
 						if(session.getAttribute("LOGIN_ID") != null){
 							out.println("<a href='./logout'>로그아웃</a>");
 						}else{
@@ -76,7 +78,7 @@
             </div>
             
             <%
-            
+            	//어드민 계정일 경우 글쓰기 버튼 생성
 				if(session.getAttribute("IS_ADMIN") != null && session.getAttribute("IS_ADMIN").equals(true)){
 					out.println("<a class='write' href='./write.jsp'><image src='./img/write.png'/ class='forAdmin'>글쓰기</a>");
 				}

@@ -38,7 +38,7 @@
 					
 				
 			</div>
-			
+			<!-- 데이터베이스 안에 사용자가 장바구니에 담은 정보들 표시 -->
 			<div class="myorder-list-wrapper">
 				<c:if test ="${MyFav.count > 0}">
 					<c:forEach var="i" begin="0" end="${MyFav.count -1 }">
